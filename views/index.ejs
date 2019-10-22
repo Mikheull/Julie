@@ -10,14 +10,22 @@
         <div class="wrap">
           <a href="https://codepen.io/fremdev/full/EyVYVm/" target="_blank"><h1>Paris Discover</h1></a>
           <div class="searchbar">
-            <input class="search-field" type="search" placeholder="Recherche un évènement" id="query">
+            <input class="search-field" type="search" placeholder="Recherche un évènement" name="search" id="query">
             <div class="buttons">
               <button class="search" id="search">Search</button>
             </div>
           </div>
           <div class="result">
+            <% if (query) { %>
+                <span><%= query %></span>
+            <% } %>
+
+
+            <% if (result) { %>
+                <span><%- JSON.stringify(result) %></span>
+            <% } %>
           </div>
         </div>
-      </body>   
+      </body>
 </body>
 </html>
