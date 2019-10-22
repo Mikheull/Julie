@@ -1,1 +1,16 @@
 VUE INDEX
+
+<form action="" method="post">
+
+    <input type="text" name="search" id="search">
+
+</form>
+
+<% if (query) { %>
+    <span><%= query %></span>
+<% } %>
+
+
+<% if (result) { %>
+    <span><%- JSON.stringify(result) %></span>
+<% } %>
