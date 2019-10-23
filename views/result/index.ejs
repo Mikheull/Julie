@@ -26,48 +26,43 @@
                     <div class="sidebar-left-content nano-content" tabindex="0" style="margin-right: -17px;">
                      
                       <div>
-                            <form style="color:black;">
+                            <form style="color:black;" method="post">
                            
                               <div class="field-search">
-                                  <input type="text" name="query" required class="search-box" placeholder="Rechercher" />
+                                  <input type="text" name="query" class="search-box" placeholder="Rechercher" value="<%= query %>"/>
                               </div>
                                     
                               <div class="field-date">
-                                  <input type="date" name="focus" required class="search-box"/>
+                                  <input type="date" name="date" class="search-box"/>
                               </div>   
-                              <div>                      
-                              <select name="category" id="pet-select">
-                                  <option value="">Catégorie</option>
-                                  <option value="dog">Dog</option>
-                                  <option value="cat">Cat</option>
-                                  <option value="hamster">Hamster</option>                             
-                              </select>
+                              <div>
                             </div>
                               <div class="field-search">
-                                  <input type="text" name="arrondissement" required class="search-box" placeholder="arrondissement" />
+                                  <input type="text" name="arrondissement" class="search-box" placeholder="arrondissement" />
                               </div>
                               <div>
-                              <select name="access" id="pet-select">
+                              <select name="access_type" id="access_type">
                                   <option value="">type d'accès</option>
-                                  <option value="free">gratuit</option>
-                                  <option value="paie">payant</option>
-                                  <option value="invite">Invitation</option>                             
+                                  <option value="conseillee">Conseillee</option>
+                                  <option value="libre">Libre</option>
+                                  <option value="reservation">Reservation</option>                             
                               </select>
                             </div>
                               <div>
-                                  <label for="scales">Accès PMR</label>
-                                  <input type="checkbox" id="scales" name="PMR">
+                                  <label for="acces_pmr">Accès PMR</label>
+                                  <input type="checkbox" id="acces_pmr" name="acces_pmr">
                               </div>
                               <div>
-                                    <label for="scales">Malvoyant</label>
-                                    <input type="checkbox" id="scales" name="malvoyant">
+                                    <label for="access_malvoyant">Malvoyant</label>
+                                    <input type="checkbox" id="access_malvoyant" name="access_malvoyant">
                               </div>
                               <div>
-                                      <label for="scales">Malentendant</label>
-                                      <input type="checkbox" id="scales" name="malentendant">
+                                  <label for="acess_malentendant">Malentendant</label>
+                                  <input type="checkbox" id="acess_malentendant" name="acess_malentendant">
                               </div>
-                              <input type="submit" value="Filtrer">
-                            </form>
+
+                              <button>Rechercher</button>
+                          </form>
                               
                       </div>
                     </div>
@@ -75,10 +70,20 @@
                 </body>
                 
                 </html>
-         <div class="result">
-           <% if (result !== 'null') { %>
-                <span><%- JSON.stringify(result) %></span>
-            <% } %>
+         <div class="result" style="margin-left: 260px; margin-top: 100px">
+            <% if (result !== 'null') { %>
+              <span><%= result.nhits %> résultats</span> <br> <br>
+
+
+              <% result.records.forEach(function(event) { %>
+                  <img src="<%= event.fields.cover_url %>" alt="<%= event.fields.cover_alt %>" width="128px" height="128px"> <br>
+                  <span><%= event.fields.title %></span> <br>
+                  <span>Du <%= event.fields.date_start %> au <%= event.fields.date_end %></span> <br>
+                  <br>
+              <% }); %>
+              
+
+          <% } %>
         </div>
     
 </body>
