@@ -31,14 +31,17 @@ router.post('/:query', function(req, res) {
 
 /* GET filters */
 router.get('/:query/filter:date?:arrondissement?', function (req, res) {
+	research_obj.init();
+
 	let query = req.params.query;
+
 	let date_start = req.query.date;
 	let address_zipcode = req.query.arrondissement;
 
 	research_obj.setQuery(query);
 
-	if(req.params.date !== ''){ research_obj.addFilter('date_start', date_start) }
-	if(req.params.arrondissement !== ''){ research_obj.addFilter('address_zipcode', address_zipcode) }
+	if(typeof date_start !== 'undefined' && date_start){ research_obj.addFilter('date_start', date_start) }
+	if(typeof address_zipcode !== 'undefined' && address_zipcode){ research_obj.addFilter('address_zipcode', address_zipcode) }
 	
 	research_obj.request(result => {
 		res.render( 'result/index', { query: query, result: result } );
