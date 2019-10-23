@@ -4,25 +4,32 @@
   <meta charset="utf-8">
   <title>ParisDiscover</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <body>
 
         <div class="wrap">
         <h1>Paris Discover</h1>
-          <form action="" method="post">
+          <form action="" method="post" class="form">
           <div class="searchbar">
-              <div class="rechercher">
-                    <input class="search-field" type="search" placeholder="Recherche un évènement" name="search" id="query">
-              </div>
-              <div class="date">
-                    <input type="date" name="anniversaire">
-              </div>
-          
-            <div class="buttons">
-              <button class="search" id="search">Search</button>
+             
+                 <div class="date">
+                        <input class="search-field" type="date" name="date" >
+                </div>
+
+
+                <div class="rechercher">
+                        <i class="fa fa-search"></i>
+                        <input class="search-field" type="search" placeholder="Rechercher" name="search" id="query" class="fa fa-search" >
+                </div>
+                
+               
+                
+                <div class="buttons">
+                        <button class="search" id="search"><i class="fa fa-arrow-right"></i></button>
+                </div>
             </div>
-        </div>
     
         </form>
         </div>
