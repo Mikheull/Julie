@@ -6,17 +6,16 @@ const research_obj = new Research();
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-	res.render( 'index', { query: 'null', result: 'null', currentPage: 'home' } );
+router.get('/', function(req, res) {
+	res.render( 'index' );
 });
 
 
 /* POST home page. */
-router.post('/', function(req, res, next) {
+router.post('/', function(req, res) {
 	let search = req.body.search;
 
-	research_obj.request(search, result => {
-		res.render( 'index', { query: search, result: result, currentPage: 'home' } );
-    })
+	res.redirect('/result/' + search);
 });
+
 module.exports = router;
