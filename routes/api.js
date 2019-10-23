@@ -21,4 +21,19 @@ router.get('/:keyword', function (req, res) {
     })
 	
 })
+
+
+router.get('/:keyword/filter:date?', function (req, res) {
+    var keyword = req.params.keyword;
+    var date = req.query.date;
+
+
+    getJSON('https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q='+ keyword +'&facet=category&facet=tags&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=access_type&facet=price_type&facet=date_end&facet=date_start', function(error, response){
+        console.log(date)
+        res.send(response);
+    })
+	
+})
+
+
 module.exports = router;
