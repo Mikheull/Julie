@@ -15,7 +15,8 @@ router.get('/', function (req, res) {
 router.get('/:query', function (req, res) {
 	let query = req.params.query;
 
-	research_obj.request(query, result => {
+	research_obj.setQuery(query);
+	research_obj.request(result => {
 		res.render( 'result/index', { query: query, result: result } );
     })
 })
@@ -25,7 +26,24 @@ router.get('/:query', function (req, res) {
 router.post('/:query', function(req, res) {
 	let search = req.body.search;
 	res.redirect('/result/' + search);
-
 });
+
+
+/* GET filters */
+router.get('/:query/filter:date?:arrondissement?', function (req, res) {
+	let query = req.params.query;
+	let date_start = req.query.date;
+	let address_zipcode = req.query.arrondissement;
+
+	research_obj.setQuery(query);
+
+	if(req.params.date !== ''){ research_obj.addFilter('date_start', date_start) }
+	if(req.params.arrondissement !== ''){ research_obj.addFilter('address_zipcode', address_zipcode) }
+	
+	research_obj.request(result => {
+		res.render( 'result/index', { query: query, result: result } );
+	})
+	
+})
 
 module.exports = router;
