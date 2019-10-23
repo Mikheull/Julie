@@ -7,7 +7,7 @@ const research_obj = new Research();
 
 /* GET root */
 router.get('/', function (req, res) {
-	res.render( 'result/index', { error: 'no-query' } );
+	res.render( 'result/index', { query: 'null', result: 'null' } );
 })
 
 
@@ -24,8 +24,20 @@ router.get('/:query', function (req, res) {
 
 /* POST */
 router.post('/:query', function(req, res) {
-	let search = req.body.search;
-	res.redirect('/result/' + search);
+	let query = req.body.query;
+	let date_start = req.body.date;
+	let address_zipcode = req.body.arrondissement;
+
+	var filter_url = '';
+	if(typeof date_start !== 'undefined' && date_start){ filter_url = filter_url+'&date='+date_start ; }
+	if(typeof address_zipcode !== 'undefined' && address_zipcode){ filter_url = filter_url+'&arrondissement='+address_zipcode ; }
+
+	if(filter_url == ''){
+		res.redirect('/result/' + query);
+	}else{
+		res.redirect('/result/' + query + '/filter?' + filter_url);
+	}
+
 });
 
 

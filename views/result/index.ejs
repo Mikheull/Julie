@@ -22,14 +22,14 @@
                     <div class="sidebar-left-content nano-content" tabindex="0" style="margin-right: -17px;">
                      
                       <div>
-                            <form style="color:black;">
+                            <form style="color:black;" method="post">
                            
                               <div class="field-search">
-                                  <input type="text" name="query" required class="search-box" placeholder="Rechercher" />
+                                  <input type="text" name="query" class="search-box" placeholder="Rechercher" value="<%= query %>"/>
                               </div>
                                     
                               <div class="field-date">
-                                  <input type="date" name="focus" required class="search-box"/>
+                                  <input type="date" name="date" class="search-box"/>
                               </div>   
                               <div>                      
                               <select name="category" id="pet-select">
@@ -40,7 +40,7 @@
                               </select>
                             </div>
                               <div class="field-search">
-                                  <input type="text" name="arrondissement" required class="search-box" placeholder="arrondissement" />
+                                  <input type="text" name="arrondissement" class="search-box" placeholder="arrondissement" />
                               </div>
                               <div>
                               <select name="access" id="pet-select">
@@ -59,10 +59,12 @@
                                     <input type="checkbox" id="scales" name="malvoyant">
                               </div>
                               <div>
-                                      <label for="scales">Malentendant</label>
-                                      <input type="checkbox" id="scales" name="malentendant">
+                                  <label for="scales">Malentendant</label>
+                                  <input type="checkbox" id="scales" name="malentendant">
                               </div>
-                            </form>
+
+                              <button>Rechercher</button>
+                          </form>
                               
                       </div>
                     </div>
@@ -70,11 +72,21 @@
                 </body>
                 
                 </html>
-        <!-- <div class="result">
-s            <% if (result !== 'null') { %>
-                <span><%- JSON.stringify(result) %></span>
-            <% } %>
-        </div> -->
+         <div class="result" style="margin-left: 260px; margin-top: 100px">
+            <% if (result !== 'null') { %>
+              <span><%= result.nhits %> résultats</span> <br> <br>
+
+
+              <% result.records.forEach(function(event) { %>
+                  <img src="<%= event.fields.cover_url %>" alt="<%= event.fields.cover_alt %>" width="128px" height="128px"> <br>
+                  <span><%= event.fields.title %></span> <br>
+                  <span>Du <%= event.fields.date_start %> au <%= event.fields.date_end %></span> <br>
+                  <br>
+              <% }); %>
+              
+
+          <% } %>
+        </div>
     
 </body>
 </html>
