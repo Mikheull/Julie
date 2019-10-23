@@ -3,24 +3,78 @@
 <head>
   <meta charset="utf-8">
   <title>ParisDiscover</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/result.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="wrap">
-        <a href="../../"><h1>Paris Discover</h1></a>
-        <form action="" method="post">
-            <div class="searchbar">
-                <input class="search-field" type="search" placeholder="Recherche un évènement" name="search" id="query" value="<%= query %>">
-                <div class="buttons">
-                    <button class="search" id="search">Search</button>
-                </div>
-            </div>
-        </form>
-        <div class="result">
-            <% if (result !== 'null') { %>
+        <html>
+
+                <head>
+                </head>
+                
+                <body>
+                  <header class="navbar navbar-fixed-top navbar-shadow">
+                    <div class="navbar-branding dark">
+                      <p class="navbar-brand"><b>Paris Discover</b></p>
+                    </div>
+                  </header>
+                  <aside id="sidebar_left" class="nano nano-light affix has-scrollbar sidebar-default">
+                    <div class="sidebar-left-content nano-content" tabindex="0" style="margin-right: -17px;">
+                     
+                      <div>
+                            <form style="color:black;">
+                           
+                              <div class="field-search">
+                                  <input type="text" name="query" required class="search-box" placeholder="Rechercher" />
+                              </div>
+                                    
+                              <div class="field-date">
+                                  <input type="date" name="focus" required class="search-box"/>
+                              </div>   
+                              <div>                      
+                              <select name="category" id="pet-select">
+                                  <option value="">Catégorie</option>
+                                  <option value="dog">Dog</option>
+                                  <option value="cat">Cat</option>
+                                  <option value="hamster">Hamster</option>                             
+                              </select>
+                            </div>
+                              <div class="field-search">
+                                  <input type="text" name="arrondissement" required class="search-box" placeholder="arrondissement" />
+                              </div>
+                              <div>
+                              <select name="access" id="pet-select">
+                                  <option value="">type d'accès</option>
+                                  <option value="free">gratuit</option>
+                                  <option value="paie">payant</option>
+                                  <option value="invite">Invitation</option>                             
+                              </select>
+                            </div>
+                              <div>
+                                  <label for="scales">Accès PMR</label>
+                                  <input type="checkbox" id="scales" name="PMR">
+                              </div>
+                              <div>
+                                    <label for="scales">Malvoyant</label>
+                                    <input type="checkbox" id="scales" name="malvoyant">
+                              </div>
+                              <div>
+                                      <label for="scales">Malentendant</label>
+                                      <input type="checkbox" id="scales" name="malentendant">
+                              </div>
+                            </form>
+                              
+                      </div>
+                    </div>
+                  </aside>
+                </body>
+                
+                </html>
+        <!-- <div class="result">
+s            <% if (result !== 'null') { %>
                 <span><%- JSON.stringify(result) %></span>
             <% } %>
-        </div>
-    </div>
+        </div> -->
+    
 </body>
 </html>
