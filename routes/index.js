@@ -13,9 +13,12 @@ router.get('/', function(req, res) {
 
 /* POST home page. */
 router.post('/', function(req, res) {
+	research_obj.init();
+
 	let search = req.body.search;
 	let date = req.body.date;
 
+	if(typeof date !== 'undefined' && date){ research_obj.addFilter('date_start', date) }
 	res.redirect('/result/' + search);
 });
 

@@ -17,19 +17,16 @@ class research {
 
     request(cb) {
         // Query
-        var queryRequest = (this.query == '') ? '' : '&q='+ this.query ;
-
+        var queryRequest = (this.query == '') ? '' : '&q='+ this.query;
 
         // Filtres
         var filter_url = '';
         for(var i = 0; i < this.filters_type.length; i++){
             filter_url = filter_url+'&refine.'+this.filters_type[i]+'='+this.filters_val[i];
         }
-
         
         // Page
         let nbStart = 20*this.currentPage;
-
 
         getJSON('https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&rows=20&start='+ nbStart + queryRequest +'&facet=category&facet=tags&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=access_type&facet=price_type'+filter_url, function(error, response){
             cb(response);
