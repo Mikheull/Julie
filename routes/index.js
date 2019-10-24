@@ -16,12 +16,7 @@ router.post('/', function(req, res) {
 	let search = req.body.search;
 	let date = req.body.date;
 
-	if(date == ''){
-		res.redirect('/result/' + search);
-	}else{
-		res.redirect('/result/' + search + '/filter?date=' + date);
-	}
-
+	res.redirect('/result/' + search);
 });
 
 module.exports = router;

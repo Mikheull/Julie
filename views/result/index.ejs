@@ -10,81 +10,99 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<body>
-        <html>
 
-                <head>
-                </head>
+<html>
+	<body>
+		<header class="navbar navbar-fixed-top navbar-shadow">
+			<div class="navbar-branding dark">
+				<p class="navbar-brand"><b>Paris Discover</b></p>
+			</div>
+		</header>
+
+		<aside id="sidebar_left" class="nano nano-light affix has-scrollbar sidebar-default">
+			<div class="sidebar-left-content nano-content" tabindex="0" style="margin-right: -17px;">
+				<div>
+
+					<form style="color:black;" method="post">
+					
+						<div class="field-search">
+							<input type="text" name="query" class="search-box" placeholder="Rechercher" value="<%= query %>"/>
+						</div>
+							
+						<div class="field-date">
+							<input type="date" name="date" id="date" class="search-box"/>
+						</div> 
+
+						<select name="arrondissement" id="arrondissement">
+							<option value="">Arrondissement</option>
+							<option value="75000">75000</option>
+							<option value="75001">75001</option>
+							<option value="75002">75002</option>
+							<option value="75003">75003</option>
+							<option value="75004">75004</option>
+							<option value="75005">75005</option>
+							<option value="75006">75006</option>
+							<option value="75007">75007</option>
+							<option value="75008">75008</option>
+							<option value="75009">75009</option>
+							<option value="75010">75010</option>
+							<option value="75011">75011</option>
+							<option value="75012">75012</option>
+							<option value="75013">75013</option>
+							<option value="75014">75014</option>
+							<option value="75015">75015</option>
+							<option value="75016">75016</option>
+							<option value="75017">75017</option>
+							<option value="75018">75018</option>
+							<option value="75019">75019</option>
+							<option value="75020">75020</option>
+						</select> <br>
+
+						<select name="access_type" id="access_type">
+							<option value="">type d'accès</option>
+							<option value="conseillee">Conseillee</option>
+							<option value="libre">Libre</option>
+							<option value="reservation">Reservation</option>                             
+						</select>
+
+						<div>
+							<label for="acces_pmr">Accès PMR</label>
+							<input type="checkbox" id="acces_pmr" name="acces_pmr">
+						</div>
+						<div>
+							<label for="access_malvoyant">Malvoyant</label>
+							<input type="checkbox" id="access_malvoyant" name="access_malvoyant">
+						</div>
+						<div>
+							<label for="acess_malentendant">Malentendant</label>
+							<input type="checkbox" id="acess_malentendant" name="acess_malentendant">
+						</div>
+
+						<button id="confirm_filter">Rechercher</button>
+					</form>
+						
+				</div>
+			</div>
+		</aside>
                 
-                <body>
-                  <header class="navbar navbar-fixed-top navbar-shadow">
-                    <div class="navbar-branding dark">
-                      <p class="navbar-brand"><b>Paris Discover</b></p>
-                    </div>
-                  </header>
-                  <aside id="sidebar_left" class="nano nano-light affix has-scrollbar sidebar-default">
-                    <div class="sidebar-left-content nano-content" tabindex="0" style="margin-right: -17px;">
-                     
-                      <div>
-                            <form style="color:black;" method="post">
-                           
-                              <div class="field-search">
-                                  <input type="text" name="query" class="search-box" placeholder="Rechercher" value="<%= query %>"/>
-                              </div>
-                                    
-                              <div class="field-date">
-                                  <input type="date" name="date" class="search-box"/>
-                              </div>   
-                              <div>
-                            </div>
-                              <div class="field-search">
-                                  <input type="text" name="arrondissement" class="search-box" placeholder="arrondissement" />
-                              </div>
-                              <div>
-                              <select name="access_type" id="access_type">
-                                  <option value="">type d'accès</option>
-                                  <option value="conseillee">Conseillee</option>
-                                  <option value="libre">Libre</option>
-                                  <option value="reservation">Reservation</option>                             
-                              </select>
-                            </div>
-                              <div>
-                                  <label for="acces_pmr">Accès PMR</label>
-                                  <input type="checkbox" id="acces_pmr" name="acces_pmr">
-                              </div>
-                              <div>
-                                    <label for="access_malvoyant">Malvoyant</label>
-                                    <input type="checkbox" id="access_malvoyant" name="access_malvoyant">
-                              </div>
-                              <div>
-                                  <label for="acess_malentendant">Malentendant</label>
-                                  <input type="checkbox" id="acess_malentendant" name="acess_malentendant">
-                              </div>
-
-                              <button>Rechercher</button>
-                          </form>
-                              
-                      </div>
-                    </div>
-                  </aside>
-                </body>
-                
-                </html>
-         <div class="result" style="margin-left: 260px; margin-top: 100px">
-            <% if (result !== 'null') { %>
-              <span><%= result.nhits %> résultats</span> <br> <br>
+		<div class="result" id="result" style="margin-left: 260px; margin-top: 100px">
+			<% if (result !== 'null') { %>
+				<span><%= result.nhits %> résultats</span> <br> <br>
 
 
-              <% result.records.forEach(function(event) { %>
-                  <img src="<%= event.fields.cover_url %>" alt="<%= event.fields.cover_alt %>" width="128px" height="128px"> <br>
-                  <span><%= event.fields.title %></span> <br>
-                  <span>Du <%= event.fields.date_start %> au <%= event.fields.date_end %></span> <br>
-                  <br>
-              <% }); %>
-              
+				<% result.records.forEach(function(event) { %>
+					<img src="<%= event.fields.cover_url %>" alt="<%= event.fields.cover_alt %>" width="128px" height="128px"> <br>
+					<span><%= event.fields.title %></span> <br>
+					<span>Du <%= event.fields.date_start %> au <%= event.fields.date_end %></span> <br>
+					<a href="/event/<%= event.fields.id %>">Lien</a>
+					<br>
+				<% }); %>
+				
 
-          <% } %>
-        </div>
-    
-</body>
+			<% } %>
+		</div>
+		
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/javascript/sockets.js"></script>
+	</body>
 </html>
