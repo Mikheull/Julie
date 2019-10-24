@@ -1,91 +1,74 @@
-body {
-    width: 100%;
-    height: 100%;
-    background-image:url(../images/photo-bg.jpeg);
-    background-size: cover;
-    background-attachment:fixed;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .wrap {
-    max-width: 700px;
-    margin: 250px auto 0;
-  }
-  
-  
-  a {
-    color: #000;
-    text-decoration: none;
-  }
-  
-  h1, h2 {
-    font-family: 'Josefin Sans', sans-serif;
-    margin: 0;
-    color: #003366;
-  }
+body,html {
+  height: 100%;
+  background-image: url("/images/photo-bg-opacity-30.jpg");
+  background-position: center;
+  background-size: cover;
+}
 
-  h1 {
+/* Styles for wrapping the search box */
+
+
+/* Bootstrap 4 text input with search icon */
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
     text-align: center;
-    font-size: 42px;
-  }
-
-  
-  .searchbar {
-    text-align: center;
-    margin-top: 30px;
-    display:flex;
-    height:60px;
-  
-  }
-
-  .search-field {
-    border: 1px solid #bababa;
-    padding: 0 5px;
-    height: 36px;
-    line-height: 36px;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-bottom: 25px;
-  }
-  .date{
-
-      line-height:60px;
-      margin-left:18%;
-  }
-  .buttons {
-    display: flex;
-    margin-top:auto;
-    margin-bottom:auto;
-  }
-  
-  button {
-    border: 1px solid white;
-    height: 36px;
-    background: white;
-    color: #fff;
-    padding: 0 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    flex: 1 auto;
-    margin: 0 20px;
-  }
-  button.search{
-      color:#235F9C;
-  }
-  button:hover {
-    border: 1px solid #235F9C;;
-    background: #235F9C;
-    color:white;
-  }
-
-.form{
-    background-color:#2B687B;
+    pointer-events: none;
+    color: #aaa;
+}
+.searchbar{
+    background-color: #c74040;
+    padding-top: 15px;
     border-radius:20px;
 }
-.rechercher{
-    line-height:60px;
-    margin-left:20px;
+input.form-control{
+    border-radius:20px;
+}
 
+.chevron{
+    background-color:white;
+    border-radius:20px;
+}
+.chevron a{
+    margin-left:auto;
+    margin-right:auto;
+}
+.chevron-style{
+    font-size:30px !important;
+}
+button{
+    border: 1px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+}
+/* .chevron:hover{
+  background-color:black;
+}
+.chevron-style:hover{
+  color:white;
+}
+button:hover{
+  border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background: black;
+} */
+.div-image{
+    margin-top:2%;
+    width:100%;
+    position:absolute;
+}
+.image-logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
 }
