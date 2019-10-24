@@ -158,9 +158,14 @@
                         </div>
                         <div class="row">
                                 <div class="col-sm-5">
-                                        <span class="titleBold">Date de début</span></br><%= event.fields.date_start %> </br></br>
-                                    <span class="titleBold">Date de fin</span></br><%= event.fields.date_end %></br></br>
-                                    <span class="titleBold">Nom du lieu :</span></br>  <%= event.fields.name %> </br></br>
+                                        <span class="titleBold">Date de début</span></br><%= event.fields.date_start %> </br>
+                                    <span class="titleBold">Date de fin</span></br><%= event.fields.date_end %></br>
+                                    <span class="titleBold">Nom du lieu :</span></br>  <%= event.fields.address_street %> </br>
+                                    <span class="titleBold">Malvoyant:</span></br>  <%= event.fields.blind %> </br>
+                                    <span class="titleBold">Personne à mobilité réduite :</span></br>  <%= event.fields.pmr %> </br>
+                                    <span class="titleBold">Personne malentendante :</span></br>  <%= event.fields.deaf %> </br>
+                                    <span class="titleBold">Adresse :</span></br>  <%= event.fields.address_street %> </br>
+                                    <span class="titleBold">Téléphone :</span></br>  <%= event.fields.contact_phone %> </br>
                                     <span class="titleBold">Url : </span></br>  <span class="url"><%= event.fields.url %></span>
                                 </div>
                           

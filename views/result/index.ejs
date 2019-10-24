@@ -143,7 +143,14 @@
 							<input type="submit" id="confirm_filter" class="form-control search-menu button_filtre" placeholder="Rechercher">
 						</div>
 					</div>
-				</div>
+        </div>
+        <div class="sidebar-search">
+            <div>
+              <div class="input-group">               
+                <input type="submit" id="clear_filter" class="form-control search-menu button_filtre" value="Réinitialiser" placeholder="Réinitialiser">
+              </div>
+            </div>
+          </div>
 	
 			</div>
 		</form>
@@ -162,7 +169,7 @@
 					<% result.records.forEach(function(event) { %>
 					<div class="form-group col-md-12 result">
 						<div class="bloc-image-result">
-							<img src="ytty<%= event.fields.cover_url %>" alt="<%= event.fields.cover_alt %>" width="128px" height="128px"> <br>
+							<img src="<%= event.fields.cover_url %>" alt="<%= event.fields.cover_alt %>" width="128px" height="128px"> <br>
 						</div>
 						<div>
 							<span class="titre-result"><%= event.fields.title %></span> </br>
