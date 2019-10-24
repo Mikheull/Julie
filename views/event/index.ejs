@@ -1,0 +1,26 @@
+<% if (result !== 'null') { %>
+
+    <% result.records.forEach(function(event) { %>
+        <img src="<%= event.fields.cover_url %>" alt="<%= event.fields.cover_alt %>" width="128px" height="128px"> <br>
+        <span><%= event.fields.title %></span> <br>
+        <span>Du <%= event.fields.date_start %> au <%= event.fields.date_end %></span> <br>
+        <span>Lat <%= event.fields.lat_lon[0] %> Long <%= event.fields.lat_lon[1] %></span> <br>
+        <span><%= event.fields.address_street %></span> <br>
+        <a href="/event/<%= event.fields.id %>">Lien</a>
+        <br>
+
+        <iframe 
+            width="600" 
+            height="600" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0" 
+            src="https://maps.google.com/maps?q=<%= event.fields.lat_lon[0] %>,<%= event.fields.lat_lon[1] %>&hl=es;z=14&amp;output=embed"
+        >
+        </iframe>
+        
+
+        <br><br>
+    <% }); %>
+    
+<% } %>
