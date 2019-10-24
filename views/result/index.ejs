@@ -173,6 +173,15 @@
     </div>
    
     </div>
+
+    <div>nbPage = <%= nbPage %></div>
+    <div>
+      <a href="/result/<%= query %>/<%= (page-1 >= 0) ? page-1 : page %>"><%= (page-1 >= 0) ? 'précédent' : 'x' %></a>
+      <a href="/result/<%= query %>/<%= page %>"><%= page %></a>
+      <a href="/result/<%= query %>/<%= (page ++ >= 0) ? page ++ : page %>"><%= (page ++ >= 0) ? 'suivant' : 'x' %></a>
+    </div>
+
+
   </main>
   <!-- page-content" -->
 </div>

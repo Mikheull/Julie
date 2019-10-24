@@ -15,7 +15,9 @@ router.get('/:event', function (req, res) {
 	let eventID = req.params.event;
 
 	event_obj.request(eventID, result => {
-		res.render( 'event/index', { result: result } );
+		res.render( 'event/index', { 
+			result 
+		} );
 	})
 })
 
