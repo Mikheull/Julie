@@ -507,4 +507,16 @@
     margin-right:10px;
 }
 
-
+.antiP p{
+  margin-bottom:0;
+}
+.titleEvent{
+  color:#c74040;
+  font-size:35px;
+}
+.url{
+  color:#c74040;
+}
+.titleBold{
+  font-weight:bold;
+}

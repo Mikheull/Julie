@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+// const io = require('socket.io')(server);
 const session = require('express-session');
 const bodyParser = require("body-parser");
 
@@ -17,7 +17,7 @@ app.use(session({
     resave: true
 }))
 app.use((req, res, next) => {
-    req.io = io;
+    // req.io = io;
     next();
 });
 
@@ -31,25 +31,6 @@ app.use('/', routes);
 const Research = require('./model/research');
 const research_obj = new Research();
 
-io.sockets.on('connection', function (socket) {
-
-    socket.on('request_filter', function(query, filters_type, filters_val)  {
-        // console.log('recherche : ' + query);
-        // console.log('filtres types : ' + filters_type);
-        // console.log('filtres valeurs : ' + filters_val);
-
-        research_obj.init();
-	    research_obj.setQuery(query);
-        research_obj.setFilterType(filters_type)
-        research_obj.setFilterValue(filters_val)
-
-        research_obj.request(result => {
-            io.emit('response_filter', query, result);
-        })
-        
-    });
-
-});
 
 
 
