@@ -1,23 +1,24 @@
+# QueFaireAParis ![Issues](https://img.shields.io/github/issues/Mikheull/QueFaireAParis) ![GitHub last commit](https://img.shields.io/github/last-commit/Mikheull/QueFaireAParis)
 
-[![Coverage Status](https://coveralls.io/repos/github/Mikheull/QueFaireAParis/badge.svg?branch=master)](https://coveralls.io/github/Mikheull/ThisIsItSQUAD?branch=master)
-[![Build Status](https://travis-ci.org/Mikheull/QueFaireAParis.svg?branch=master)](https://travis-ci.org/Mikheull/ThisIsItSQUAD)
-
+This is event search engine for Paris
+<br>
+*This project was done in school (4th year)*
 
 ## Installation
 
-```
-$ git clone https://github.com/Mikheull/QueFaireAParis.git
-```
-When it's done, follow next steps.
+Use `git clone` to install this app.
 
-## Quick Start
-
-```
-$ npm install
+```bash
+git clone https://github.com/Mikheull/QueFaireAParis.git
+npm install
 ```
 
-```
-$ node app.js
+## Usage
+
+```bash
+node app.js
 ```
 
-This webapp will be available on [http://localhost:3000](http://localhost:3000)
+## Team
+[YassHouays](https://github.com/YassHouays)
+
